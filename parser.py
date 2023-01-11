@@ -9,7 +9,7 @@ from colorama import Fore, Style
 
 class Parser():
 	def parse_args() -> object:
-		parser = ArgumentParser(description='burrito v0.1', epilog='Created by ld3k0fv')
+		parser = ArgumentParser(description='BURRito - BUrp Request Replayer v0.1', epilog='Created by ld3k0fv')
 
 		parser.add_argument('-u', '--url', dest='url', action='store', type=str, required=False, help='The target URL to use (skips all others)')
 		parser.add_argument('-c', '--cookies', dest='cookies', action='extend', nargs='+', required=False, help='The cookies to use')
