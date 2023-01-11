@@ -30,12 +30,12 @@ class Client():
 		response = self.client.get(request.url, cookies=self.cookies)
 
 		print(f'\tStatus Code: {Fore.CYAN}{response.status_code}{Style.RESET_ALL} <-> {Fore.CYAN}{request.status_code}{Style.RESET_ALL}')
-		print(f'\tLength: {Fore.CYAN}{len(response.content)}{Style.RESET_ALL} <-> {Fore.CYAN}{request.length}{Style.RESET_ALL}')
+		print(f'\tLength: {Fore.CYAN}{response.num_bytes_downloaded}{Style.RESET_ALL} <-> {Fore.CYAN}{request.length}{Style.RESET_ALL}')
 		print(f'\tResponse: {response.content}\n')
 
 	def do_POST(self: object, request: object) -> None:
 		response = self.client.post(request.url, cookies=self.cookies, data=request.data, json=request.json)
 
 		print(f'\tStatus Code: {Fore.CYAN}{response.status_code}{Style.RESET_ALL} <-> {Fore.CYAN}{request.status_code}{Style.RESET_ALL}')
-		print(f'\tLength: {Fore.CYAN}{len(response.content)}{Style.RESET_ALL} <-> {Fore.CYAN}{request.length}{Style.RESET_ALL}')
+		print(f'\tLength: {Fore.CYAN}{response.num_bytes_downloaded}{Style.RESET_ALL} <-> {Fore.CYAN}{request.length}{Style.RESET_ALL}')
 		print(f'\tResponse: {response.content}\n')

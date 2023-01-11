@@ -80,3 +80,18 @@ class Parser():
 			return None, body
 
 		return body, None
+
+	def parse_response_headers(request: object) -> dict:
+		response = b64decode(request.find('response').text)
+		headers = {}
+
+		for header in response.split(b'\r\n\r\n')[0].split(b'\r\n'):
+			header = header.decode()
+
+			if ':' not in header:
+				continue
+
+			name, value = header.split(':', 1)
+			headers[name.strip()] = value.strip()
+
+		return headers
