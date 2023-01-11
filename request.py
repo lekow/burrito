@@ -5,6 +5,8 @@ class Request():
 	def __init__(self: object, request: object) -> None:
 		self.url = request.find('url').text
 		self.method = request.find('method').text
+		self.status_code = request.find('status').text
+		self.length = request.find('responselength').text
 		self.data, self.json = Parser.parse_request_body(request)
 
 	def skip(self: object, args: object) -> bool:
