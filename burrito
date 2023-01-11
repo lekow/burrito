@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+from parser import Parser
+from client import Client
+
+
+def main() -> None:
+	args = Parser.parse_args()
+	client = Client(args)
+	requests = Parser.parse_requests(args)
+
+	client.replay_requests(args, requests)
+
+
+if __name__ == '__main__':
+	main()
