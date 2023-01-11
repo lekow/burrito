@@ -15,7 +15,7 @@
 - 🗒️ Saving output to file
 - ⚡ Concurrency
 
-## Help
+## ❓ Help
 ```
 usage: burrito [-h] [-u URL] [-c COOKIES [COOKIES ...]] -f FILENAME [-hv {1.1,2}] [-p PROXIES [PROXIES ...]] -m METHODS [METHODS ...]
 
