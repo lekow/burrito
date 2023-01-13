@@ -11,12 +11,14 @@ class Parser():
 	def parse_args() -> object:
 		parser = ArgumentParser(description='BURRito - BUrp Request Replayer v0.1', epilog='Created by ld3k0fv')
 
-		parser.add_argument('-u', '--url', dest='url', action='store', type=str, required=False, help='The target URL to use (skips all others)')
 		parser.add_argument('-c', '--cookies', dest='cookies', action='extend', nargs='+', required=False, help='The cookies to use')
 		parser.add_argument('-f', '--filename', dest='filename', action='store', type=str, required=True, help='The file to use')
 		parser.add_argument('-hv', '--http-version', dest='http_version', action='store', type=str, choices=['1.1', '2'], default='1.1', help='The HTTP version to use (default: 1.1)')
 		parser.add_argument('-p', '--proxies', dest='proxies', action='extend', nargs='+', required=False, help='The proxy to use')
 		parser.add_argument('-m', '--methods', dest='methods', action='extend', nargs='+', required=True, help='The HTTP methods to use')
+		parser.add_argument('-mu', '--match-url', dest='match_url', action='store', type=str, required=False, help='The target URL to match (filters all others)')
+		parser.add_argument('-fu', '--filter-url', dest='filter_url', action='store', type=str, required=False, help='The target URL to filter (matches all others)')
+		
 
 		return parser.parse_args()
 

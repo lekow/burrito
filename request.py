@@ -11,10 +11,13 @@ class Request():
 		self.data, self.json = Parser.parse_request_body(request)
 
 	def skip(self: object, args: object) -> bool:
-		return self.is_not_target(args) or self.invalid_method(args)
+		return self.is_not_match_url(args) or self.filter_url(args) or self.invalid_method(args)
 
-	def is_not_target(self: object, args: object) -> bool:
-		return args.url and not self.url.startswith(args.url)
+	def is_not_match_url(self: object, args: object) -> bool:
+		return args.match_url is not None and args.match_url and not self.url.startswith(args.match_url)
+
+	def filter_url(self: object, args: object) -> bool:
+		return args.filter_url is not None and self.url.startswith(args.filter_url)
 
 	def invalid_method(self: object, args: object) -> bool:
 		return self.method not in args.methods
