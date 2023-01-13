@@ -39,7 +39,7 @@ class Client():
 		print(f'\tLength: {Fore.CYAN}{response.num_bytes_downloaded}{Style.RESET_ALL} <-> {Fore.CYAN}{request.length}{Style.RESET_ALL}')
 		print(f'\tResponse: {response.content}\n')
 
-	def do_POST(self: object, request: object) -> None:
+	def do_POST(self: object, args: object, request: object) -> None:
 		response = self.client.post(request.url, cookies=self.cookies, data=request.data, json=request.json)
 
 		if not Match.match(args, response):
