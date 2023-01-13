@@ -17,8 +17,9 @@ class Parser():
 		parser.add_argument('-p', '--proxies', dest='proxies', action='extend', nargs='+', required=False, help='The proxy to use')
 		parser.add_argument('-m', '--methods', dest='methods', action='extend', nargs='+', required=True, help='The HTTP methods to use')
 		parser.add_argument('-mu', '--match-url', dest='match_url', action='store', type=str, required=False, help='The target URL to match (filters all others)')
+		parser.add_argument('-mc', '--match-code', dest='match_code', action='store', type=str, required=False, help='The status code to match (filters all others)')
 		parser.add_argument('-fu', '--filter-url', dest='filter_url', action='store', type=str, required=False, help='The target URL to filter (matches all others)')
-		
+		parser.add_argument('-fc', '--filter-code', dest='filter_code', action='store', type=str, required=False, help='The status code to filter (matches all others)')
 
 		return parser.parse_args()
 
